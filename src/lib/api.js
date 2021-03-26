@@ -21,6 +21,13 @@ export function fetchCharacters() {
         img.src = characters.image;
         img.alt = `${characters.name}`;
 
+        if (characters.status === "Alive") {
+          section.style.backgroundColor = "#cdfbbb";
+        } else if (characters.status === "Dead") {
+          section.style.backgroundColor = "#ff2020";
+        } else if (characters.status === "unknown") {
+          section.style.backgroundColor = "#d4d0d0";
+        }
         section.append(h2);
         section.append(img);
       });

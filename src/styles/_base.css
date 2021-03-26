@@ -16,6 +16,8 @@ html {
 .grid-layout {
   display: grid;
   height: 100vh;
+  min-height: 667px;
+  min-width: 375px;
   grid-template-rows: [header] 80px [content] auto [footer] 80px;
   overflow-x: hidden;
   margin: 0;
@@ -78,7 +80,7 @@ header {
   width: 100vw;
   justify-content: space-between;
   background-color: var(--background-color-characters);
-  border: 2px solid #cdfbbb;
+  border: 0.5px solid black;
   border-radius: 5px;
 }
 
@@ -89,6 +91,7 @@ header {
 .avatar {
   height: 80px;
   width: 80px;
+  border: 1px solid black;
   border-radius: 50%;
   margin: 5px;
 }
