@@ -1,8 +1,8 @@
 export function fetchCharacters() {
-  const url = "https://rickandmortyapi.com/api/character";
+  const urlCharacters = "https://rickandmortyapi.com/api/character";
   const main = document.querySelector("main");
 
-  fetch(url)
+  fetch(urlCharacters)
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -14,8 +14,10 @@ export function fetchCharacters() {
         section.classList.add("characters");
         main.append(section);
         const h2 = document.createElement("h2");
+        h2.classList.add("name");
         h2.textContent = `${characters.name}`;
         const img = document.createElement("img");
+        img.classList.add("avatar");
         img.src = characters.image;
         img.alt = `${characters.name}`;
 
@@ -24,3 +26,17 @@ export function fetchCharacters() {
       });
     });
 }
+
+// export function filterCharacters() {
+//   const filterDropdown = document.querySelector(".header__filter");
+//   let url;
+
+//   if (type === "alive") {
+//     url = `${urlCharacters}?status=alive`;
+//   } else if (type === "dead") {
+//     url = `${urlCharacters}?status=dead`;
+//   } else if (type === "unknown") {
+//     url = `${urlCharacters}?status=unknown`;
+//   }
+//   return fetch(url).then((res) => res.json());
+// }

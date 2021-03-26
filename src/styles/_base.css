@@ -10,6 +10,7 @@ html {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  color: var(--font-color);
 }
 
 .grid-layout {
@@ -71,6 +72,25 @@ header {
   grid-row: content;
   overflow-y: scroll;
   background-color: bisque;
+}
+.characters {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  background-color: var(--background-color-characters);
+  border: 2px solid #cdfbbb;
+  border-radius: 5px;
+}
+
+.name {
+  padding: 10px;
+}
+
+.avatar {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin: 5px;
 }
 
 .footer-layout {
