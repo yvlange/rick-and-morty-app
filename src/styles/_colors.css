@@ -1,3 +1,10 @@
 :root {
   /* Define your variable colors here */
+  --background-color-header: #87d1db;
+  --background-color-footer: #87d1db;
+  --background-color-characters: #e8f5f7;
+  --background-color-alive: #33ff99;
+  --background-color-dead: #ff2020;
+  --background-color-unknowkn: #d4d0d0;
+  --font-color: #333333;
 }
