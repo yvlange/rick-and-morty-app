@@ -52,6 +52,7 @@ header {
   cursor: pointer;
   border: 2px solid #cdfbbb;
   border-radius: 5px;
+  text-align: center;
 }
 
 .header__search-button {
