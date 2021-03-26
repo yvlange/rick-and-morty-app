@@ -1,8 +1,20 @@
 export function fetchCharacters() {
-  const urlCharacters = "https://rickandmortyapi.com/api/character";
-  const main = document.querySelector("main");
+  const filterDropdown = document.querySelector(".header__filter");
+  const type = filterDropdown.value;
+  let url;
 
-  fetch(urlCharacters)
+  if (type === "alive") {
+    url = "https://rickandmortyapi.com/api/character?status=alive";
+  } else if (type === "dead") {
+    url = "https://rickandmortyapi.com/api/character?status=dead";
+  } else if (type === "unknown") {
+    url = "https://rickandmortyapi.com/api/character?status=unknown";
+  } else if (type === "all") {
+    url = "https://rickandmortyapi.com/api/character";
+  }
+  console.log(type);
+
+  fetch(url)
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -12,6 +24,7 @@ export function fetchCharacters() {
       data.results.forEach((characters) => {
         const section = document.createElement("section");
         section.classList.add("characters");
+        const main = document.querySelector("main");
         main.append(section);
         const h2 = document.createElement("h2");
         h2.classList.add("name");
@@ -34,16 +47,7 @@ export function fetchCharacters() {
     });
 }
 
-// export function filterCharacters() {
-//   const filterDropdown = document.querySelector(".header__filter");
-//   let url;
-
-//   if (type === "alive") {
-//     url = `${urlCharacters}?status=alive`;
-//   } else if (type === "dead") {
-//     url = `${urlCharacters}?status=dead`;
-//   } else if (type === "unknown") {
-//     url = `${urlCharacters}?status=unknown`;
-//   }
-//   return fetch(url).then((res) => res.json());
-// }
+export function clearCharacters() {
+  const section = document.querySelectorAll("section");
+  section.forEach((section) => section.remove());
+}
