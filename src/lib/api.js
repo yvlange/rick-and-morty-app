@@ -28,6 +28,7 @@ export function fetchCharacters() {
         section.classList.add("characters");
         const main = document.querySelector("main");
         main.append(section);
+
         const h2 = document.createElement("h2");
         h2.classList.add("name");
         h2.textContent = `${characters.name}`;
@@ -36,6 +37,28 @@ export function fetchCharacters() {
         img.src = characters.image;
         img.alt = `${characters.name}`;
 
+        const info = document.createElement("div");
+        info.classList.add("characters-info");
+
+        const status = document.createElement("p");
+        status.classList.add("characters-status");
+        status.textContent = `Status: ${characters.status}`;
+
+        const species = document.createElement("p");
+        species.classList.add("characters-species");
+        species.textContent = `Species: ${characters.species}`;
+
+        const gender = document.createElement("p");
+        gender.classList.add("characters-gender");
+        gender.textContent = `Gender: ${characters.gender}`;
+
+        info.append(h2);
+        section.append(img);
+        section.append(info);
+        info.append(status);
+        info.append(species);
+        info.append(gender);
+
         if (characters.status === "Alive") {
           section.style.backgroundColor = "#cdfbbb";
         } else if (characters.status === "Dead") {
@@ -43,8 +66,6 @@ export function fetchCharacters() {
         } else if (characters.status === "unknown") {
           section.style.backgroundColor = "#d4d0d0";
         }
-        section.append(h2);
-        section.append(img);
       });
     });
 }
